@@ -5,6 +5,10 @@ metadata:
   namespace: spring-test-application
   labels:
     app: demo
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*' # 이미지스트림을 인식 하도록 설정
+    image.openshift.io/triggers: >- # 이미지 변경시 트리거(재배포)
+      [{"from":{"kind":"ImageStreamTag","name":"demo:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"demo\")].image"}]
 spec:
   replicas: 1
   selector:
@@ -16,7 +20,7 @@ spec:
         app: demo
     spec:
       containers:
-      - image: registry.dev-nexus.honecloud.co.kr:5000/demo:0.1
+      - image: demo:latest
         imagePullPolicy: IfNotPresent
         name: demo
         ports:
