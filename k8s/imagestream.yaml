@@ -1,0 +1,10 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: demo
+  namespace: spring-test-application
+  labels:
+    app: demo
+spec:
+  lookupPolicy:
+    local: false

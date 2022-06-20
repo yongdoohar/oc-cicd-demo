@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: demo
+  namespace: spring-test-application
+  labels:
+    app: demo
+    service: demo
+spec:
+  host: demo-spring-test-application.apps.paas.honecloud.co.kr
+  to:
+    kind: Service
+    name: demo
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None

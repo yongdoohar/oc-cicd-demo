@@ -1,0 +1,23 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: demo
+  namespace: spring-test-application
+  labels:
+    app: demo
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'demo:latest'
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  postCommit: {}
+  source:
+    git:
+      uri: http://gitea-spring-test-application.apps.dev.honecloud.co.kr/devopsdt/spring-petclinic.git
+  runPolicy: Serial
