@@ -18,6 +18,5 @@ spec:
     type: Docker
   postCommit: {}
   source:
-    git:
-      uri: https://github.com/yongdoohar/oc-cicd-demo.git
+    type: Binary
   runPolicy: Serial

@@ -1,0 +1,21 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mvn-setting
+  namespace: spring-test-application
+  labels:
+    app: demo
+data:
+  settings.xml: |
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          http://maven.apache.org/xsd/settings-1.0.0.xsd">
+      <mirrors>
+      <mirror>
+      <mirrorOf>*</mirrorOf>
+      <name>Nexus</name>
+      <url>http://cleverse-nexus.apps.dev.honecloud.co.kr/repository/maven-public/</url>
+      </mirror>
+      </mirrors>
+    </settings>

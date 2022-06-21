@@ -1,0 +1,31 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-pipeline-workspace-demo
+  namespace: spring-test-application
+  labels:
+    app: demo
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ontap-sc-delete
+  volumeMode: Filesystem
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-pipeline-mvn-demo
+  namespace: spring-test-application
+  labels:
+    app: demo
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: ontap-sc-delete
+  volumeMode: Filesystem

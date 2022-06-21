@@ -1,0 +1,24 @@
+﻿apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: maven-build
+  namespace: spring-test-application
+  labels:
+    app: demo
+spec:
+  steps:
+    - args:
+        - cd /tmp/src && mvn package -Dmaven.test.skip=true
+      command:
+        - /bin/bash
+        - '-c'
+      image: 'registry.dev-nexus.honecloud.co.kr:5000/maven:3.6.3-jdk-8'
+      name: patch
+      resources: {}
+  workspaces:
+    - mountPath: /tmp/src
+      name: source
+    - mountPath: /root/.m2
+      name: m2
+    - mountPath: /root
+      name: setting
