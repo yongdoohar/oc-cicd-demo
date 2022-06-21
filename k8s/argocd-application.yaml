@@ -12,7 +12,7 @@ spec:
       jsonPointers:
         - /spec/template/spec/containers
       kind: Deployment
-  project: devopsdt
+  project: default
   source:
     path: ./k8s
     repoURL: >-
