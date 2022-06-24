@@ -16,6 +16,9 @@ data:
       <mirrorOf>*</mirrorOf>
       <name>Nexus</name>
       <url>http://cleverse-nexus.apps.dev.honecloud.co.kr/repository/maven-public/</url>
+
+
+      
       </mirror>
       </mirrors>
     </settings>
